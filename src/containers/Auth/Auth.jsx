@@ -17,10 +17,7 @@ const Auth = ({ mode = 'login' }) => {
 
   const { values, handleChange } = useForm();
 
-  const { list, loading, error } = useSelector(({ auth }) => auth);
-
-  //if (loading) return <Loader />;
-  //if (error) return <h1>Error</h1>;
+  const { isAuth, loading, error } = useSelector(({ auth }) => auth);
 
   const handleSubmit = () => null;
 
@@ -43,7 +40,10 @@ const Auth = ({ mode = 'login' }) => {
         {mode === 'register' && <small>write.as/your-username/</small>}
 
         {mode === 'register' && <label>Password</label>}
-        <Input type='text' placeholder={mode === 'login' ? 'password' : ''} />
+        <Input
+          type='password'
+          placeholder={mode === 'login' ? 'password' : ''}
+        />
         {mode === 'register' && (
           <>
             <label>Email (optional)</label>
@@ -52,13 +52,17 @@ const Auth = ({ mode = 'login' }) => {
         )}
 
         <Button type='button' value='Start Trial' onClick={handleSubmit} />
-        {mode === 'login' && (
-          <p>
-            No account yet? Sign up to start a blog and sync your posts. Or just
-            start a new post now — no need to sign up!
-          </p>
-        )}
       </Form>
+
+      {loading && !error && <p>Loading...</p>}
+      {!loading && error && <p>{error}</p>}
+
+      {mode === 'login' && (
+        <p>
+          No account yet? Sign up to start a blog and sync your posts. Or just
+          start a new post now — no need to sign up!
+        </p>
+      )}
     </Container>
   );
 };
