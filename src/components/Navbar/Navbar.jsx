@@ -13,7 +13,7 @@ const Navbar = () => {
         <Link href='/start'>
           <LinkItem>Sign Up</LinkItem>
         </Link>
-        <Link href='/start'>
+        <Link href='/login'>
           <LinkItem login>Log in</LinkItem>
         </Link>
       </ButtonsWrapper>
