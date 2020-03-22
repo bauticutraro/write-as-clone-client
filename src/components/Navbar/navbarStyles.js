@@ -9,6 +9,7 @@ export const Nav = styled.nav`
 
 export const MiniLogo = styled.img`
   height: 38px;
+  cursor: pointer;
 `;
 
 export const ButtonsWrapper = styled.div``;

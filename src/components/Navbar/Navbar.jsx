@@ -1,13 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import Link from 'next/link';
 // styles
 import { Nav, MiniLogo, ButtonsWrapper, LinkItem } from './navbarStyles';
-import Link from 'next/link';
 
 const Navbar = () => {
   return (
     <Nav>
-      <MiniLogo src='/w-sq.svg' alt='' />
+      <Link href='/'>
+        <MiniLogo src='/w-sq.svg' alt='' />
+      </Link>
       <ButtonsWrapper>
         <Link href='/start'>
           <LinkItem>Sign Up</LinkItem>
@@ -19,7 +20,5 @@ const Navbar = () => {
     </Nav>
   );
 };
-
-Navbar.propTypes = {};
 
 export default React.memo(Navbar);

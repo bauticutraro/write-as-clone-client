@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 // styles
 import {
   Container,
@@ -18,7 +19,9 @@ const Mid = () => {
       </LogoContainer>
       <Lema>A place for focused writing.</Lema>
       <BottonMidWrapper>
-        <StartButton>Start writing</StartButton>
+        <Link href='/new'>
+          <StartButton>Start writing</StartButton>
+        </Link>
         <TryOut>Try it out without signing up, or sign up now</TryOut>
       </BottonMidWrapper>
     </Container>
