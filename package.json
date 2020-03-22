@@ -10,6 +10,7 @@
     "component": "node src/utils/makeComponent.js"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "next": "9.3.1",
     "next-redux-saga": "^4.1.2",
     "next-redux-wrapper": "^5.0.0",

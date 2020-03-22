@@ -1,6 +1,11 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
+import Posts from '../containers/Posts/Posts';
 
-const Home = () => <h1>Hola</h1>;
+const Home = () => (
+  <div>
+    <h1>Hola</h1>
+    <Posts />
+  </div>
+);
 
 export default Home;

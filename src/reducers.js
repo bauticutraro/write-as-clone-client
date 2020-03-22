@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-//import { connectRouter } from 'connected-react-router';
-//import { persistReducer } from 'redux-persist';
-//import storage from 'redux-persist/lib/storage';
-
 // reducers
+import postsReducer from './containers/Posts/postsReducer';
 
-export default () => combineReducers({});
+export default () =>
+  combineReducers({
+    posts: postsReducer
+  });

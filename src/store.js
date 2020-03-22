@@ -1,56 +1,20 @@
-import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
-import createSagaMiddleware, { END } from 'redux-saga';
+import { createStore, applyMiddleware, compose } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import createRootReducer from './reducers';
 
-import reducers from './reducers';
-import rootSaga from './sagas';
+export const sagaMiddleware = createSagaMiddleware();
 
-const sagaMiddleware = createSagaMiddleware();
-const makeStore = initialState => {
-  // Make exception for redux dev tools
-  /* eslint-disable no-underscore-dangle */
-  /* eslint-disable no-undef */
-  const composeEnhancers =
-    (typeof window !== 'undefined' &&
-      window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
-    compose;
-  /* eslint-enable */
-  const store = createStore(
-    combineReducers(reducers),
-    initialState,
-    composeEnhancers(applyMiddleware(sagaMiddleware))
-  );
+const initialState = {};
+const enhancers = [
+  typeof window !== 'undefined' && window.devToolsExtension
+    ? window.devToolsExtension()
+    : f => f
+];
+const middleware = [sagaMiddleware];
 
-  store.runSaga = () => {
-    // Avoid running twice
-    if (store.saga) return;
-    store.saga = sagaMiddleware.run(rootSaga);
-  };
+const composedEnhancers = compose(applyMiddleware(...middleware), ...enhancers);
 
-  store.stopSaga = async () => {
-    // Avoid running twice
-    if (!store.saga) return;
-    store.dispatch(END);
-    await store.saga.done;
-    store.saga = null;
-  };
-
-  store.execSagaTasks = async (isServer, tasks) => {
-    // run saga
-    store.runSaga();
-    // dispatch saga tasks
-    tasks(store.dispatch);
-    // Stop running and wait for the tasks to be done
-    await store.stopSaga();
-    // Re-run on client side
-    if (!isServer) {
-      store.runSaga();
-    }
-  };
-
-  // Initial run
-  store.runSaga();
-
-  return store;
+export default () => {
+  let store = createStore(createRootReducer(), initialState, composedEnhancers);
+  return { store };
 };
-
-export default makeStore;

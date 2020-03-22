@@ -28,7 +28,7 @@ import { Container } from './${folderName.toLowerCase()}Styles';
 const ${folderName} = () => {
   const dispatch = useDispatch();
 
-  const {list, loading, error} = useSelector( ({auth}) => auth );
+  const {list, loading, error} = useSelector( ({${folderName.toLowerCase()}}) => ${folderName.toLowerCase()} );
 
   if (loading) return <Loader />
   if (error) return <h1>Error</h1>
@@ -115,7 +115,7 @@ function* get${folderName}Saga() {
   yield takeLatest(constants.GET_${folderName.toUpperCase()}_START, get${folderName});
 }
    
-export default function* userSaga() {
+export default function* ${folderName.toLowerCase()}Saga() {
   yield all([fork(get${folderName}Saga)]);
 }`,
 
@@ -128,7 +128,7 @@ export const get${folderName} = () =>
 
     `import styled from 'styled-components';
 
-export const Container = styled.div;
+export const Container = styled.div'';
 
 `
   ];
