@@ -1,10 +1,11 @@
 import React from 'react';
-import Posts from '../containers/Posts/Posts';
+import Navbar from '../components/Navbar/Navbar';
+import Mid from '../components/Mid/Mid';
 
 const Home = () => (
   <div>
-    <h1>Hola</h1>
-    <Posts />
+    <Navbar />
+    <Mid />
   </div>
 );
 
