@@ -46,4 +46,5 @@ export const Button = styled.input`
   transition: all 0.2s ease-out;
   border-radius: 0.25em;
   cursor: pointer;
+  outline: none;
 `;

@@ -41,6 +41,7 @@ export const StartButton = styled.button`
   transition: all 0.2s ease-out;
   border-radius: 0.25em;
   cursor: pointer;
+  outline: none;
 `;
 
 export const TryOut = styled.p`
