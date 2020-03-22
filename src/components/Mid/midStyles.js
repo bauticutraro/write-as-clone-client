@@ -40,6 +40,7 @@ export const StartButton = styled.button`
   font-family: Lora, serif;
   transition: all 0.2s ease-out;
   border-radius: 0.25em;
+  cursor: pointer;
 `;
 
 export const TryOut = styled.p`

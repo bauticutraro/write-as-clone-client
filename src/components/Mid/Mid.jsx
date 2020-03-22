@@ -19,7 +19,7 @@ const Mid = () => {
       <Lema>A place for focused writing.</Lema>
       <BottonMidWrapper>
         <StartButton>Start writing</StartButton>
-        <TryOut>Try it out without signing up, or sign up now.</TryOut>
+        <TryOut>Try it out without signing up, or sign up now</TryOut>
       </BottonMidWrapper>
     </Container>
   );
