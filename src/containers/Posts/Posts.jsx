@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getPostsStart } from './postsActions';
 // styles & components
 import Loader from '../../components/Loader/Loader';
+import PostItem from '../../components/PostItem/PostItem';
 import { Container } from './postsStyles';
 
 const Posts = () => {
@@ -20,6 +21,9 @@ const Posts = () => {
   return (
     <Container>
       <h1>Posts</h1>
+      {list.map(post => (
+        <PostItem key={post.id} {...post} />
+      ))}
     </Container>
   );
 };
