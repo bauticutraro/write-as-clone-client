@@ -24,7 +24,9 @@ const NewNav = () => {
 
       <ArticleNavRight>
         <Icon src='/theme.png' alt='' />
-        <Icon src='/list.png' alt='' />
+        <Link href='/posts'>
+          <Icon src='/list.png' alt='' />
+        </Link>
         <Icon src='/send.png' alt='' />
       </ArticleNavRight>
     </ArticleNav>
