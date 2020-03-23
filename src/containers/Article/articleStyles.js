@@ -11,8 +11,9 @@ export const TextArea = styled.textarea`
   width: 100%;
   height: calc(100% - 3em - 1px);
   padding: 1em 2em 2em;
-  font-size: 1.2em;
+  font-size: 1.6em;
   letter-spacing: 0.6px;
+  font-weight: 300;
   box-sizing: border-box;
   resize: none;
   border: none;
