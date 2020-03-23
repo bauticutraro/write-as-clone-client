@@ -12,14 +12,22 @@ import {
 } from './authStyles';
 import useForm from '../../hooks/useForm';
 
+const initialState = {
+  username: '',
+  password: '',
+  email: ''
+};
+
 const Auth = ({ mode = 'login' }) => {
   const dispatch = useDispatch();
 
-  const { values, handleChange } = useForm();
+  const { values, handleChange } = useForm(initialState);
 
   const { isAuth, loading, error } = useSelector(({ auth }) => auth);
 
-  const handleSubmit = () => null;
+  const handleSubmit = () => {
+    return null;
+  };
 
   return (
     <Container>
@@ -36,18 +44,34 @@ const Auth = ({ mode = 'login' }) => {
       </AuthSubtitle>
       <Form>
         {mode === 'register' && <label>Username</label>}
-        <Input type='text' placeholder={mode === 'login' ? 'username' : ''} />
-        {mode === 'register' && <small>write.as/your-username/</small>}
+        <Input
+          type='text'
+          placeholder={mode === 'login' ? 'username' : ''}
+          name='username'
+          onChange={handleChange}
+        />
+        {mode === 'register' && (
+          <small>
+            write.as/{values.username ? values.username : 'your-username'}/
+          </small>
+        )}
 
         {mode === 'register' && <label>Password</label>}
         <Input
           type='password'
           placeholder={mode === 'login' ? 'password' : ''}
+          name='password'
+          onChange={handleChange}
         />
         {mode === 'register' && (
           <>
             <label>Email (optional)</label>
-            <Input type='text' placeholder='me@example.com' />
+            <Input
+              type='text'
+              placeholder='me@example.com'
+              name='email'
+              onChange={handleChange}
+            />
           </>
         )}
 
