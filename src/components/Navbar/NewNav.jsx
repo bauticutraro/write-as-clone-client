@@ -6,8 +6,10 @@ import {
   ArticleNavRight,
   Icon
 } from './navbarStyles';
+import { useSelector } from 'react-redux';
 
 const NewNav = () => {
+  const { content } = useSelector(({ article }) => article);
   return (
     <ArticleNav>
       <ArticleNavLeft>
@@ -19,7 +21,9 @@ const NewNav = () => {
         <Icon src='/arrow.png' alt='' />
 
         <Icon src='/font.png' alt='' />
-        <p>0 words</p>
+        <p>
+          {content.trim().length ? content.trim().split(' ').length : 0} words
+        </p>
       </ArticleNavLeft>
 
       <ArticleNavRight>

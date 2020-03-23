@@ -15,3 +15,7 @@ export const getArticleFailure = payload => ({
   payload
 });
 
+export const setContent = payload => ({
+  type: constants.SET_CONTENT,
+  payload
+});
