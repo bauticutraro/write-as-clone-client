@@ -22,7 +22,12 @@ const Mid = () => {
         <Link href='/new'>
           <StartButton>Start writing</StartButton>
         </Link>
-        <TryOut>Try it out without signing up, or sign up now</TryOut>
+        <TryOut>
+          Try it out without signing up, or{' '}
+          <Link href='/start'>
+            <a>sign up now</a>
+          </Link>
+        </TryOut>
       </BottonMidWrapper>
     </Container>
   );

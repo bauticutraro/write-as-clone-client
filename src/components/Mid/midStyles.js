@@ -45,7 +45,7 @@ export const StartButton = styled.button`
 `;
 
 export const TryOut = styled.p`
-  font-size: 0.86em;
+  font-size: 1.6em;
   color: #444;
   margin-top: 2rem;
   font-style: italic;
