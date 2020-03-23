@@ -30,3 +30,26 @@ export const LinkItem = styled.a`
       border-radius: 0.25em;
     `}
 `;
+
+// New
+
+export const ArticleNav = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const ArticleNavLeft = styled(ArticleNav)``;
+
+export const ArticleNavRight = styled(ArticleNav)``;
+
+export const Icon = styled.img`
+  width: 24px;
+  height: 24px;
+  opacity: 0.2;
+  cursor: pointer;
+  padding: 16px;
+  &:hover {
+    opacity: 1;
+  }
+`;
