@@ -4,7 +4,7 @@ import * as constants from './postsConstants';
 import * as actions from './postsActions';
 import * as services from './postsServices';
 
-function* getPosts({ payload }) {
+function* getPosts() {
   try {
     const posts = yield services.getPosts();
     if (posts) yield put(actions.getPostsSuccess({ list: posts }));

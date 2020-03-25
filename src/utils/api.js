@@ -5,7 +5,7 @@ const PORT = 5000;
 export default async (url, method = 'GET', data = null, headers = {}) => {
   try {
     const res = await Axios({
-      url,
+      url: `http://localhost:${PORT}/api/v1/${url}`,
       method,
       data,
       headers: {

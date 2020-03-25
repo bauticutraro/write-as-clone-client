@@ -6,7 +6,7 @@ import Loader from '../../components/Loader/Loader';
 import PostItem from '../../components/PostItem/PostItem';
 import { Container } from './postsStyles';
 
-const Posts = () => {
+const Posts = ({ username }) => {
   const dispatch = useDispatch();
 
   const { list, loading, error } = useSelector(({ posts }) => posts);
@@ -20,7 +20,7 @@ const Posts = () => {
 
   return (
     <Container>
-      <h1>Posts</h1>
+      <h1>{username}</h1>
       {list.map(post => (
         <PostItem key={post.id} {...post} />
       ))}
