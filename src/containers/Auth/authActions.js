@@ -1,17 +1,31 @@
 import * as constants from './authConstants';
 
-export const getAuthStart = payload => ({
-  type: constants.GET_AUTH_START,
+export const registerStart = payload => ({
+  type: constants.REGISTER_START,
   payload
 });
 
-export const getAuthSuccess = payload => ({
-  type: constants.GET_AUTH_SUCCESS,
+export const registerSuccess = payload => ({
+  type: constants.REGISTER_SUCCESS,
   payload
 });
 
-export const getAuthFailure = payload => ({
-  type: constants.GET_AUTH_FAILURE,
+export const registerFailure = payload => ({
+  type: constants.REGISTER_FAILURE,
   payload
 });
 
+export const loginStart = payload => ({
+  type: constants.LOGIN_START,
+  payload
+});
+
+export const loginSuccess = payload => ({
+  type: constants.LOGIN_SUCCESS,
+  payload
+});
+
+export const loginFailure = payload => ({
+  type: constants.LOGIN_FAILURE,
+  payload
+});

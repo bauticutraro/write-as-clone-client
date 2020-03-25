@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import { useSelector, useDispatch } from 'react-redux';
 // styles & components
 import Loader from '../../components/Loader/Loader';
@@ -11,6 +12,7 @@ import {
   Form
 } from './authStyles';
 import useForm from '../../hooks/useForm';
+import { registerStart, loginStart } from './authActions';
 
 const initialState = {
   username: '',
@@ -21,12 +23,19 @@ const initialState = {
 const Auth = ({ mode = 'login' }) => {
   const dispatch = useDispatch();
 
+  const router = useRouter();
+
   const { values, handleChange } = useForm(initialState);
 
-  const { isAuth, loading, error } = useSelector(({ auth }) => auth);
+  const { user, isAuth, loading, error } = useSelector(({ auth }) => auth);
+
+  React.useEffect(() => {
+    if (isAuth) router.push(`/${user.username}`);
+  }, [isAuth]);
 
   const handleSubmit = () => {
-    return null;
+    if (mode === 'register') dispatch(registerStart(values));
+    else dispatch(loginStart(values));
   };
 
   return (
