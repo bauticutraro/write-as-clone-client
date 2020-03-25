@@ -1,12 +1,13 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import PostContainer from '../containers/Posts/Posts';
 
-const Posts = props => {
-  return <PostContainer username={'germancutraro'} />;
+const Posts = () => {
+  const {
+    query: { user }
+  } = useRouter();
+
+  return <PostContainer username={user} />;
 };
-/*
-Posts.getInitialProps = props => {
-  console.log(props);
-};*/
 
 export default Posts;
