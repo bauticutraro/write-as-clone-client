@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import moment from 'moment';
 // styles
-import { Container } from './postitemStyles';
+import { Container, PostDate, PostContent } from './postitemStyles';
 
 const PostItem = ({ content, user, created }) => {
   return (
@@ -15,10 +15,10 @@ const PostItem = ({ content, user, created }) => {
           .split(' ')
           .join('-')}`}
       >
-        <h3>{moment(created).format('DD-MM-YYYY')}</h3>
+        <PostDate>{moment(created).format('DD-MM-YYYY')}</PostDate>
       </Link>
 
-      <h3>{content}</h3>
+      <PostContent>{content}</PostContent>
     </Container>
   );
 };

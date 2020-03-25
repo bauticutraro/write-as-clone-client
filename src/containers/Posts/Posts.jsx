@@ -4,7 +4,7 @@ import { getPostsStart } from './postsActions';
 // styles & components
 import Loader from '../../components/Loader/Loader';
 import PostItem from '../../components/PostItem/PostItem';
-import { Container } from './postsStyles';
+import { Container, User } from './postsStyles';
 
 const Posts = ({ username }) => {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const Posts = ({ username }) => {
 
   return (
     <Container>
-      <h1>{username}</h1>
+      <User>{username}</User>
       {list.map(post => (
         <PostItem key={post.id} {...post} />
       ))}
