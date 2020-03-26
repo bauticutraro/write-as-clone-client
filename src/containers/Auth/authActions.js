@@ -29,3 +29,8 @@ export const loginFailure = payload => ({
   type: constants.LOGIN_FAILURE,
   payload
 });
+
+// logout
+export const logout = () => ({
+  type: constants.LOGOUT
+});

@@ -28,6 +28,9 @@ export default (state = initialState, { type, payload }) => {
     case constants.LOGIN_FAILURE:
       return { ...state, loading: false, error: payload.error };
 
+    case constants.LOGOUT:
+      localStorage.removeItem('token');
+      return { ...state, isAuth: false, user: {} };
     default:
       return state;
   }

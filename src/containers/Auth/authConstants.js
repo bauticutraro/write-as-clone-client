@@ -5,3 +5,5 @@ export const REGISTER_FAILURE = 'app/Auth/REGISTER_FAILURE';
 export const LOGIN_START = 'app/Auth/LOGIN_START';
 export const LOGIN_SUCCESS = 'app/Auth/LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'app/Auth/LOGIN_FAILURE';
+
+export const LOGOUT = 'app/Auth/LOGOUT';
