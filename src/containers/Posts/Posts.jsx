@@ -22,7 +22,7 @@ const Posts = ({ username }) => {
     <Container>
       <User>{username}</User>
       {list.map(post => (
-        <PostItem key={post.id} {...post} />
+        <PostItem key={post._id} {...post} />
       ))}
     </Container>
   );
