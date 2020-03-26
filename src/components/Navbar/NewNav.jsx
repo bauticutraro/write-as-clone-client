@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import {
   ArticleNav,
   ArticleNavLeft,
@@ -9,10 +10,20 @@ import {
   Words,
   TargetName
 } from './navbarStyles';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { createArticleStart } from '../../containers/Article/articleActions';
 
 const NewNav = () => {
+  const dispatch = useDispatch();
   const { content } = useSelector(({ article }) => article);
+
+  const router = useRouter();
+
+  const handleSend = async () => {
+    await dispatch(createArticleStart({ content }));
+    router.push('/posts');
+  };
+
   return (
     <ArticleNav>
       <ArticleNavLeft>
@@ -34,7 +45,8 @@ const NewNav = () => {
         <Link href='/posts'>
           <Icon src='/list.png' alt='' />
         </Link>
-        <Icon src='/send.png' alt='' />
+
+        <Icon onClick={handleSend} src='/send.png' alt='' />
       </ArticleNavRight>
     </ArticleNav>
   );

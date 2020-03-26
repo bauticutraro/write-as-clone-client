@@ -10,6 +10,7 @@ const initialState = {
 export default (state = initialState, { type, payload }) => {
   switch (type) {
     case constants.GET_ARTICLE_START:
+    case constants.CREATE_ARTICLE_START:
       return { ...state, list: [], loading: true, error: null };
 
     case constants.GET_ARTICLE_SUCCESS:
@@ -20,7 +21,11 @@ export default (state = initialState, { type, payload }) => {
         error: null
       };
 
+    case constants.CREATE_ARTICLE_SUCCESS:
+      return { ...state };
+
     case constants.GET_ARTICLE_FAILURE:
+    case constants.CREATE_ARTICLE_FAILURE:
       return { ...state, loading: false, error: payload.error };
 
     case constants.SET_CONTENT:
