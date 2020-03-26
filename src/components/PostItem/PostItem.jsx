@@ -9,8 +9,8 @@ const PostItem = ({ content, user, created }) => {
   return (
     <Container>
       <Link
-        href='/germancutraro/[content]'
-        as={`/germancutraro/${content
+        href='/[username]/[content]'
+        as={`/${user?.username || 'anonymous'}/${content
           .toLowerCase()
           .split(' ')
           .join('-')}`}

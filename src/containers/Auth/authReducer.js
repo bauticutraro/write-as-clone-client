@@ -18,7 +18,7 @@ export default (state = initialState, { type, payload }) => {
       localStorage.setItem('token', payload.user.token);
       return {
         ...state,
-        user: { ...payload.user },
+        user: { ...payload.user.user },
         isAuth: true,
         loading: false,
         error: null

@@ -5,7 +5,6 @@ import * as actions from './authActions';
 import * as services from './authServices';
 
 function* register({ payload }) {
-  console.log('payload', payload);
   try {
     const user = yield services.register(payload);
 
