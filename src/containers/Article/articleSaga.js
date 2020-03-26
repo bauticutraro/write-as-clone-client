@@ -9,7 +9,11 @@ function* getArticle({ payload }) {
     const user = yield services.getArticle();
     if (user) yield put(actions.getArticleSuccess({ user }));
   } catch (err) {
-    yield put(actions.getArticleFailure({ error: err.message }));
+    yield put(
+      actions.getArticleFailure({
+        error: err.response ? err.response.data.error : err
+      })
+    );
   }
 }
 
@@ -25,7 +29,11 @@ function* createArticle({ payload }) {
     const user = yield services.createArticle(payload);
     if (user) yield put(actions.createArticleSuccess({ user }));
   } catch (err) {
-    yield put(actions.createArticleFailure({ error: err.message }));
+    yield put(
+      actions.createArticleFailure({
+        error: err.response ? err.response.data.error : err
+      })
+    );
   }
 }
 

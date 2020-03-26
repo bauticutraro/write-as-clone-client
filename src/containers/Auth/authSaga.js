@@ -10,7 +10,11 @@ function* register({ payload }) {
 
     if (user) yield put(actions.registerSuccess({ user }));
   } catch (err) {
-    yield put(actions.registerFailure({ error: err.message }));
+    yield put(
+      actions.registerFailure({
+        error: err.response ? err.response.data.error : err
+      })
+    );
   }
 }
 
@@ -25,7 +29,11 @@ function* login({ payload }) {
 
     if (user) yield put(actions.loginSuccess({ user }));
   } catch (err) {
-    yield put(actions.loginFailure({ error: err.message }));
+    yield put(
+      actions.loginFailure({
+        error: err.response ? err.response.data.error : err
+      })
+    );
   }
 }
 

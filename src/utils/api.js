@@ -16,6 +16,6 @@ export default async (url, method = 'GET', data = null, headers = {}) => {
     });
     return res.data;
   } catch (err) {
-    return err;
+    throw err;
   }
 };

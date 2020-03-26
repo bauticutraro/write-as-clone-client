@@ -30,7 +30,7 @@ const Auth = ({ mode = 'login' }) => {
   const { user, isAuth, loading, error } = useSelector(({ auth }) => auth);
 
   React.useEffect(() => {
-    if (isAuth) router.push(`/${user.username}`);
+    if (isAuth && Object.keys(user).length) router.push(`/${user.username}`);
   }, [isAuth]);
 
   const handleSubmit = () => {
