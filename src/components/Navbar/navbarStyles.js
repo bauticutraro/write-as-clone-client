@@ -48,8 +48,24 @@ export const Icon = styled.img`
   height: 24px;
   opacity: 0.2;
   cursor: pointer;
-  padding: 16px;
   &:hover {
     opacity: 1;
   }
+`;
+
+export const Logo = styled.h1`
+  display: inline-block;
+  font-family: Lora, serif;
+  margin: 0;
+  font-size: 1.5em;
+`;
+
+export const Words = styled.p`
+  color: #777;
+  font-size: 14px;
+  font-family: 'Lora', sans-serif;
+`;
+
+export const TargetName = styled.p`
+  color: #333;
 `;

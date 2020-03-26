@@ -4,7 +4,10 @@ import {
   ArticleNav,
   ArticleNavLeft,
   ArticleNavRight,
-  Icon
+  Icon,
+  Logo,
+  Words,
+  TargetName
 } from './navbarStyles';
 import { useSelector } from 'react-redux';
 
@@ -14,16 +17,16 @@ const NewNav = () => {
     <ArticleNav>
       <ArticleNavLeft>
         <Link href='/'>
-          <a>Write.as</a>
+          <Logo>write.as</Logo>
         </Link>
 
-        <p>Anonymous</p>
+        <TargetName>Anonymous</TargetName>
         <Icon src='/arrow.png' alt='' />
 
         <Icon src='/font.png' alt='' />
-        <p>
+        <Words>
           {content.trim().length ? content.trim().split(' ').length : 0} words
-        </p>
+        </Words>
       </ArticleNavLeft>
 
       <ArticleNavRight>
