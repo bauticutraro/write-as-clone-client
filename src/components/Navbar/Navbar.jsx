@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../../containers/Auth/authActions';
 // styles
@@ -10,8 +11,11 @@ const Navbar = () => {
 
   const { isAuth } = useSelector(({ auth }) => auth);
 
-  const handleLogout = () => {
-    dispatch(logout());
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    await dispatch(logout());
+    router.push('/');
   };
 
   return (
